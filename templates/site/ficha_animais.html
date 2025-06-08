@@ -1,0 +1,32 @@
+{% extends 'site/base_sem_carrossel.html' %}
+
+{% block content %}
+<!-- Cards -->
+ <div style="padding: 35px;">
+  <div class="card mb-3" style="max-width: 1000px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="data:image/jpeg;base64,{{animal['img']}}" alt="{{animal['nome']}}" class="img-fluid rounded-start" width="500" height="500">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Descrição do animal</h5>
+          <p></p>
+          <p class="card-text">Nome: {{animal['nome']}}</p>
+          <p class="card-text">Descrição: {{animal['descricao']}}</p>
+          <p class="card-text">Sexo: {{animal['sexo']}}</p>
+          <p class="card-text">Raça: {{animal['raca']}}</p>
+          <p class="card-text">Faixa Etária: {{animal['faixa_etaria']}}</p>
+          <p class="card-text">Castrado: {{animal['castrado']}}</p>
+          <p class="card-text">Porte: {{animal['porte']}}</p>
+          <p class="card-text">Comportamento: {{animal['comportamento']}}</p>
+          <div  class="d-grid gap-2 d-md-flex justify-content-md-end">
+           <a href="{{url_for('adotar', id=animal['id'])}}"> <button type="button" class="btn btn-info">Adotar!</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

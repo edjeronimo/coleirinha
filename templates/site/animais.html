@@ -1,0 +1,27 @@
+{% extends 'site/base.html' %}
+
+{% block content %}
+<!-- Cards -->
+<div class="container">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom" style="padding-top: 30px">Animais disponíveis para adoção</h3>
+
+    <div class="row mb-2">
+        {% for i in animal %}
+        <div class="col-md-6">
+            <a href="{{url_for('fichaAnimais', id=i['id'])}}", class="text-reset", style="text-decoration: none;">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">{{i['nome']}}</h3>
+                    <p class="mb-auto">{{i['descricao']}}</p>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="data:image/jpeg;base64,{{i['img']}}" alt="{{i['nome']}}" class="bd-placeholder-img" width="150" height="150">
+                </div>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    </a>
+</div>
+{% endblock %}

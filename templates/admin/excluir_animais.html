@@ -1,0 +1,39 @@
+{% extends 'admin/base.html' %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-primary card-outline" style="width: 100%;">
+                <div class="card-header">
+                    <h5 class="m-0">Deseja realmente excluir?</h5>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <div class="card" style="width: 25%;">
+                            <img src="data:image/jpeg;base64,{{animal['img']}}" class="card-img-top" alt="imagem da espécie">
+                            <div class="card-header">
+                                <h5>{{animal['nome']}}</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{animal['descricao']}}</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <form method="POST">
+                                <button type="submit" class="btn btn-danger my-2">Confirmar</button>
+                            </form>
+                            <a href="{{url_for('listarAnimais')}}">
+                                <button type="button" class="btn btn-primary my-2">Cancelar</button>
+                            </a>
+                        </div>
+                    </div>
+                </div> <!-- card-body -->
+            </div> <!-- card card-primary card-outline -->
+        </div> <!-- col-12 -->
+    </div> <!-- row -->
+</div> <!-- container-fluid -->
+
+
+{% endblock %}

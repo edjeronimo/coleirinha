@@ -1,0 +1,126 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Editar Animal</h3>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="card-body">
+                    <!-- Nome -->
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome do animal" value="{{animal['nome']}}" >
+                    </div>
+
+                    <!-- Descrição -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="descricao">Descrição</label>
+                        <input class="form-control" name="descricao" id="descricao" placeholder="Digite a descrição" value="{{animal['descricao']}}" ></input>
+                    </div>
+
+                    <!-- Imagem -->
+                    <p></p>
+                    <div class="mb-6">
+                        <label for="img" class="form-label">Selecione a imagem</label>
+                        <input class="form-control" type="file" name="img" id="img"></input>
+                    </div>
+                    <div class="card" style="width: 8rem;">
+                        <img src="data:image/jpeg;base64,{{animal['img']}}" class="card-img-top" alt="imagem do animal">
+                        <p class="card-body">Imagem atual</p>
+                    </div>
+
+                    <!-- Ativo -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="ativo">Ativo</label>
+                        <select class="form-control" name="ativo" id="ativo">
+                            <option value="1" {% if animal['ativo'] == 1 %}selected{% endif %}>SIM</option>
+                            <option value="0" {% if animal['ativo'] == 0 %}selected{% endif %}>NÃO</option>
+                        </select>
+                    </div>
+
+                    <!-- Porte -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="porte">Porte</label>
+                        <select class="form-control" name="porte" id="porte">
+                            <option value="Pequeno" {% if animal['porte'] == 'Pequeno' %}selected{% endif %}>Pequeno</option>
+                            <option value="Médio" {% if animal['porte'] == 'Médio' %}selected{% endif %}>Médio</option>
+                            <option value="Grande" {% if animal['porte'] == 'Grande' %}selected{% endif %}>Grande</option>
+                            <option value="Gigante" {% if animal['porte'] == 'Gigante' %}selected{% endif %}>Gigante</option>
+                        </select>
+                    </div>
+
+                    <!-- Sexo -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="sexo">Sexo</label>
+                        <select class="form-control" name="sexo" id="sexo">
+                            <option value="Macho" {% if animal['sexo'] == 'Macho' %}selected{% endif %}>Macho</option>
+                            <option value="Fêmea" {% if animal['sexo'] == 'Fêmea' %}selected{% endif %}>Fêmea</option>
+                        </select>
+                    </div>
+
+                    <!-- Castrado -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="castrado">Castrado</label>
+                        <select class="form-control" name="castrado" id="castrado">
+                            <option value="Sim" {% if animal['castrado'] == 'Sim' %}selected{% endif %}>SIM</option>
+                            <option value="Não" {% if animal['castrado'] == 'Não' %}selected{% endif %}>NÃO</option>
+                        </select>
+                    </div>
+
+                    <!-- Raça -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="raca">Raça</label>
+                        <input type="text" class="form-control" name="raca" id="raca" placeholder="Digite a raça" value="{{animal['raca']}}" ></input>
+                    </div>
+
+                    <!-- Faixa Etária -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="faixa_etaria">Faixa Etária</label>
+                        <select class="form-control" name="faixa_etaria" id="faixa_etaria">
+                            <option value="Filhote" {% if animal['faixa_etaria'] == 'Filhote' %}selected{% endif %}>Filhote</option>
+                            <option value="Adulto" {% if animal['faixa_etaria'] == 'Adulto' %}selected{% endif %}>Adulto</option>
+                            <option value="Idoso" {% if animal['faixa_etaria'] == 'Idoso' %}selected{% endif %}>Idoso</option>
+                        </select>
+                    </div>
+
+                    <!-- Comportamento -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="comportamento">Comportamento</label>
+                        <input class="form-control" name="comportamento" id="comportamento" placeholder="Descreva o comportamento" value="{{animal['comportamento']}}" ></input>
+                    </div>
+
+                    <!-- Espécie -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="id_especie">Espécie</label>
+                        <select class="form-control" name="id_especie" id="id_especie">
+                            {% for i in especie %}
+                            <option value="{{ i['id'] }}" {% if i['id'] == animal['id_especie'] %}selected{% endif %}>{{i['nome']}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Botões de ação -->
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success">Finalizar</button>
+                    <a href="{{ url_for('listarAnimais') }}">
+                        <button type="button" class="btn btn-primary">Cancelar</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

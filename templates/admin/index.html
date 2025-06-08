@@ -1,0 +1,103 @@
+{% extends 'admin/base.html' %}
+
+
+{% block content %}
+  
+ <!--begin::App Main-->
+ <main class="app-main"> 
+    <!--begin::App Content Header-->
+    <div class="app-content-header"> 
+        <!--begin::Container-->
+        <div class="container-fluid"> 
+            <!--begin::Row-->
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Cadastros</h3>
+                </div>
+            </div> 
+            <!--end::Row-->
+        </div> 
+        <!--end::Container-->
+    </div> 
+    <!--end::App Content Header-->
+
+    <!--begin::App Content-->
+    <div class="app-content"> 
+        <!--begin::Container-->
+        <div class="container-fluid"> 
+            <!--begin::Row-->
+            <div class="row"> 
+                <!--begin::Col-->
+                <div class="col-lg-3 col-6"> 
+                    <!--begin::Small Box Widget 1-->
+                    <div class="small-box text-bg-primary">
+                        <div class="inner">
+                            <p>Especies</p>
+                        </div>
+                        <img class="small-box-icon" src="static/img/pata icon.png" alt="Icone de Especies" aria-hidden="true">
+                        <a href="{{url_for('listarEspecies')}}" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                            Visualizar 
+                        </a>
+                    </div> 
+                    <!--end::Small Box Widget 1-->
+                </div> 
+                <!--end::Col-->
+
+                <div class="col-lg-3 col-6"> 
+                    <!--begin::Small Box Widget 2-->
+                    <div class="small-box text-bg-success">
+                        <div class="inner">
+                            <p>Animais</p>
+                        </div>
+                        <img class="small-box-icon" src="static/img/osso.png" alt="Icone de Animais" aria-hidden="true">
+                        <a href="{{url_for('listarAnimais')}}" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                            Visualizar 
+                        </a>
+                    </div> 
+                    <!--end::Small Box Widget 2-->
+                </div> 
+                <!--end::Col-->
+
+                <div class="col-lg-3 col-6"> 
+                    <!--begin::Small Box Widget 3-->
+                    <div class="small-box text-bg-warning">
+                        <div class="inner">
+                            <p>Usuários</p>
+                        </div>
+                        <img class="small-box-icon" src="static/img/user.png" alt="Icone de Usuários" aria-hidden="true">
+                        <a href="#" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
+                            Visualizar 
+                        </a>
+                    </div> 
+                    <!--end::Small Box Widget 3-->
+
+                </div> 
+                <!--end::Col-->
+
+
+                <div class="col-lg-3 col-6"> 
+                    <!--begin::Small Box Widget 4-->
+                    <div class="small-box text-bg-danger">
+                        <div class="inner">
+                            <p>Adoção</p>
+                        </div>
+                        <img class="small-box-icon" src="static/img/casa.png" alt="Icone de Animais" aria-hidden="true">
+                        <a href="{{url_for('pedidoAdocao')}}" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                            Visualizar
+                        </a>
+                    </div> 
+                    <!--end::Small Box Widget 4-->
+                </div> 
+                <!--end::Col-->
+
+            </div> 
+            <!--end::Row-->
+        </div> 
+        <!--end::Container-->
+    </div> 
+    <!--end::App Content-->
+</main> 
+<!--end::App Main-->
+
+        
+{% endblock %}

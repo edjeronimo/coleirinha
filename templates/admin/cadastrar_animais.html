@@ -1,0 +1,122 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Cadastrar Animal</h3>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="card-body">
+                    <!-- Nome -->
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome do animal" >
+                    </div>
+
+                    <!-- Descrição -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="descricao">Descrição</label>
+                        <textarea class="form-control" name="descricao" id="descricao" placeholder="Digite a descrição" ></textarea>
+                    </div>
+
+                    <!-- Imagem -->
+                    <p></p>
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Selecione a imagem</label>
+                        <input class="form-control" type="file" name="img" id="img" >
+                    </div>
+
+                    <!-- Ativo -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="ativo">Ativo</label>
+                        <select class="form-control" name="ativo" id="ativo">
+                            <option value=1>SIM</option>
+                            <option value=0>NÃO</option>
+                        </select>
+                    </div>
+
+                    <!-- Porte -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="porte">Porte</label>
+                        <select class="form-control" name="porte" id="porte" >
+                            <option value="Pequeno">Pequeno</option>
+                            <option value="Médio">Médio</option>
+                            <option value="Grande">Grande</option>
+                            <option value="Pequeno">Gigante</option>
+                        </select>
+                    </div>
+
+                    <!-- Sexo -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="sexo">Sexo</label>
+                        <select class="form-control" name="sexo" id="sexo" >
+                            <option value="Macho">Macho</option>
+                            <option value="Fêmea">Fêmea</option>
+                        </select>
+                    </div>
+
+                    <!-- Castrado -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="castrado">Castrado</label>
+                        <select class="form-control" name="castrado" id="castrado" >
+                            <option value="Sim">SIM</option>
+                            <option value="Não">NÃO</option>
+                        </select>
+                    </div>
+
+                    <!-- Raça -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="raca">Raça</label>
+                        <input type="text" class="form-control" name="raca" id="raca" placeholder="Digite a raça" >
+                    </div>
+
+                    <!-- Faixa Etária -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="faixa_etaria">Faixa Etária</label>
+                        <select class="form-control" name="faixa_etaria" id="faixa_etaria" >
+                            <option value="Filhote">Filhote</option>
+                            <option value="Adulto">Adulto</option>
+                            <option value="Idoso">Idoso</option>
+                        </select>
+                    </div>
+
+                    <!-- Comportamento -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="comportamento">Comportamento</label>
+                        <textarea class="form-control" name="comportamento" id="comportamento" placeholder="Descreva o comportamento" ></textarea>
+                    </div>
+
+                    <!-- Espécie -->
+                    <p></p>
+                    <div class="form-group">
+                        <label for="id_especie">Espécie</label>
+                        <select class="form-control" name="id_especie" id="id_especie" >
+                            {% for i in especie %}
+                            <option value="{{ i['id'] }}">{{ i['nome'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Botões de ação -->
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success">Finalizar</button>
+                    <a href="{{ url_for('listarAnimais') }}">
+                        <button type="button" class="btn btn-primary">Cancelar</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

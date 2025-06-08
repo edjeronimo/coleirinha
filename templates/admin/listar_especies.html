@@ -1,0 +1,135 @@
+{% extends 'admin/base.html' %}
+
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title">
+            <div>
+                <a href="{{url_for("cadastrarEspecies")}}"> <button type="submit" class="btn btn-block btn-success btn-lg">Cadastrar</button> </a>
+            </div>
+        </h1>
+        <h2>
+            <div class="row"></div>
+                <div class="col-md-8 offset-md-2">
+                <form action="">
+                <div class="input-group">
+                <input type="search" class="form-control form-control-lg" placeholder="Procurar">
+                <div class="input-group-append">
+                <button type="submit" class="btn btn-lg btn-default">
+                <i class="fa fa-search"></i>
+                </button>
+                </div>
+                </div>
+                </form>
+                </div>
+            
+        </h2>
+    </div>
+    <div class="card-body">
+        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
+                        aria-describedby="example1_info">
+                        <thead>
+                            <tr>
+                                <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-sort="ascending"
+                                    aria-label="id da espécie">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">ID</font>
+                                    </font>
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="nome da espécie">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Nome</font>
+                                    </font>
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="descrição da espécie">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Descrição</font>
+                                    </font>
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="imagem da espécie">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Imagem</font>
+                                    </font>
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="ativo">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Ativo</font>
+                                    </font>
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                aria-label="editar cadastro">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;"></font>
+                                </font>
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                aria-label="editar cadastro">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;"></font>
+                                </font>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for i in especie %}
+                            <tr class="odd">
+                                <td class="dtr-control sorting_1" tabindex="0">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">{{i['id']}}</font>
+                                    </font>
+                                </td>
+                                <td>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">{{i['nome']}}</font>
+                                    </font>
+                                </td>
+                                <td>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">{{i['descricao']}}</font>
+                                    </font>
+                                </td>
+                                <td>
+                                    <font style="vertical-align: inherit;">
+                                        <img src="data:image/jpeg;base64,{{i['img']}}" width="50">
+                                    </font>
+                                </td>
+                                <td>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">{{i['ativo']}}</font>
+                                    </font>
+                                    
+                                </td>
+                                <td>
+                                    <font style="vertical-align: inherit;">
+                                        <div class="btn-group">
+                                            <a href="{{url_for("editarEspecies", id=i["id"])}}"><button type="button" class="btn btn-info">Editar</button></a>
+                                            <a href="{{url_for("excluirEspecies", id=i["id"])}}"><button type="button" class="btn btn-danger">Excluir</button></a>
+                                        </div>
+                                    </font>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
